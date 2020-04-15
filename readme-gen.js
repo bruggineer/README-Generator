@@ -1,6 +1,6 @@
 //get the needed modules
 const fs = require("fs");
-cont inquirer = require("inquirer");
+const inquirer = require("inquirer");
 
 const newReadMe = 'readme-file.json'
 
