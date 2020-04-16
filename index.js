@@ -59,7 +59,7 @@ function askQuestions(){
 function init() {
     api.getUser();
     askQuestions();
-    generateMarkdown();
+    generateMarkdown.generateMarkdown();
 }
 
 init();
