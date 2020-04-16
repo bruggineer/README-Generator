@@ -2,7 +2,7 @@
 const fs = require("fs");
 const inquirer = require("inquirer");
 const util = require("util");
-const api = require("./api");
+const api = require("./api.getUser()");
 const markdown = require("./generateMarkdown");
 
 function askQuestions(){
@@ -13,7 +13,7 @@ function askQuestions(){
                 message: "Enter the Project Title:"
             },
             {
-                type: "input",
+                type: "editor",
                 name: "projectDesc",
                 message: "Enter Description:"
             },
@@ -48,16 +48,11 @@ function askQuestions(){
                 message: "Where can questions be submitted?:"
             },
         ])
-        .then(function(data) {
-            var filename = data.title + ".json";
-            fs.writeFile(filename, JSON.stringify(data, null, '\t'), function(err) {
+        .then(answers => {
+            console.info('Answer:', answers);
                 if (err) {
                     return console.log(err);
-                  }
-              
-                  console.log("Success!");
-              
-                });
+                  }              
               });
             }
 
