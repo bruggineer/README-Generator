@@ -1,3 +1,7 @@
+const api = require("./api");
+const markdown = require("./generateMarkdown");
+
+
 function generateMarkdown(data) {
   return `
 <!DOCTYPE html>
