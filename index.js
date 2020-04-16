@@ -2,7 +2,7 @@
 const fs = require("fs");
 const inquirer = require("inquirer");
 const util = require("util");
-const api = require("./api.getUser()");
+const api = require("./api");
 const markdown = require("./generateMarkdown");
 
 function askQuestions(){
@@ -57,7 +57,7 @@ function askQuestions(){
             }
 
 function init() {
-    getUser();
+    api.getUser();
     askQuestions();
     generateMarkdown();
 }
