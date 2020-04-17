@@ -1,6 +1,5 @@
 const api = require("./api");
-const markdown = require("./generateMarkdown");
-
+const index =require("./index");
 
 function generateMarkdown(answers, githubData) {
   const newREADME = `

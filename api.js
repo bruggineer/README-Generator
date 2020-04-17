@@ -3,7 +3,7 @@ const fs = require("fs");
 const axios = require("./node_modules/axios");
 const inquirer = require("inquirer");
 
-const token = "36adc0c202698af6b1e39244853d6aedaf60061d3";
+const token = "b9eec851ed53a2d6e6c7e0b4acfb2afed26a0f3c";
 
 async function getUser() {
   const answers = await inquirer
@@ -14,6 +14,7 @@ async function getUser() {
         message: "Enter GitHub username:",
       },
     ])
+    console.log(answers.username);
 
   const data = await axios.get(
     `https://api.github.com/users/${answers.username}?access_token=${token}`
@@ -27,9 +28,12 @@ async function getUser() {
     const githubData = {
       email: email,
       avatar: avatar,
-      username: answers.username
+      username: answers.username  
     }
-    return githubData;
+    const githubDataStr = JSON.stringify(githubData);
+    console.log("from API" + 
+    githubDataStr)
+    return githubDataStr;
   })
 }
 
