@@ -3,7 +3,7 @@ const markdown = require("./generateMarkdown");
 
 
 function generateMarkdown(data, githubData) {
-  return `
+  `
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -39,6 +39,15 @@ function generateMarkdown(data, githubData) {
 </body>
 </html>
 `;
+
+  fs.writeFile('newREADME.md', markup, (err) => {
+    if (err) throw err;
+    console.log("newREADME.md created")
+  });
+
+  return generateMarkdown("newREADME.md")
 }
 
-module.exports = generateMarkdown;
+module.exports = {
+  generateMarkdown: generateMarkdown
+}

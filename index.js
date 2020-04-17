@@ -63,3 +63,8 @@ async function init() {
 }
 
 init();
+
+fs.writeFile('README.md', data, (err) => {
+    if (err) throw err;
+    console.log("README.md created")
+});
