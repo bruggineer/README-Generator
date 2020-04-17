@@ -3,7 +3,7 @@ const fs = require("fs");
 const axios = require("./node_modules/axios");
 const inquirer = require("inquirer");
 
-const token = "3139c9fcf13233c1fc8d397d18acdc93b93175b8";
+const token = "36adc0c202698af6b1e39244853d6aedaf60061d3";
 
 async function getUser() {
   const answers = await inquirer

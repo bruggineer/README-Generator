@@ -57,14 +57,14 @@ function askQuestions() {
 }
 
 async function init() {
-    const githubData = await api.getUser();
+    await api.getUser();
     askQuestions();
     generateMarkdown.generateMarkdown(answers, githubData);
 }
 
 init();
 
-fs.writeFile('README.md', data, (err) => {
-    if (err) throw err;
-    console.log("README.md created")
-});
+// fs.writeFile('README.md', data, (err) => {
+//     if (err) throw err;
+//     console.log("README.md created")
+// });
