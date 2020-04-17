@@ -3,10 +3,10 @@ const fs = require("fs");
 const axios = require("./node_modules/axios");
 const inquirer = require("inquirer");
 
-const token = "cdca4986bd06135c891fd198b228e3d48be944b0";
+const token = "914ab27b459e992e6b8527126fab3b4863d8dc30";
 
-function getUser() {
-  inquirer
+async function getUser() {
+  const answers = await inquirer
     .prompt([
       {
         type: "input",
@@ -14,17 +14,25 @@ function getUser() {
         message: "Enter GitHub username:",
       },
     ])
-    .then(answers => {
-      ///console.info('Answer:', answers.username);
-    });
 
-  axios.get(
-    `https://api.github.com/users/${username}?access_token=${token}`
-  ),
 
-    console.info(data),
-    console.info(data.email),
-    console.info(data.avatar_url) 
+  const data = await axios.get(
+    `https://api.github.com/users/${answers.username}?access_token=${token}`
+  ).then(function (data) {
+
+    console.log(data.data);
+    const email = data.data.email;
+    const avatar = data.data.avatar_url;
+    console.log(email)
+    console.log(avatar)
+  });
+
+  const githubData = {
+    email: email,
+    avatar: avatar,
+    username: answers.username
+  }
+  return githubData
 }
 module.exports = {
   getUser: getUser

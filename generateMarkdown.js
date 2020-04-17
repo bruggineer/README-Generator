@@ -2,7 +2,7 @@ const api = require("./api");
 const markdown = require("./generateMarkdown");
 
 
-function generateMarkdown(data) {
+function generateMarkdown(data, githubData) {
   return `
 <!DOCTYPE html>
 <html lang="en">
@@ -14,8 +14,8 @@ function generateMarkdown(data) {
 </head>
 <body>
   <div class="container">
-    <img src="${githubAvatar}" alt="${username}" />
-    <h1 class="display-4">${data.title} by ${username}</h1>
+    <img src="${githubData.avatar}" alt="${githubData.username}" />
+    <h1 class="display-4">${data.title} by ${githubData.username}</h1>
     <p class="lead">${data.projectDesc}</p>
     <h3>Example heading <span class="badge badge-secondary">Contact Me</span></h3>
     <ul class="list-group">
@@ -34,7 +34,6 @@ function generateMarkdown(data) {
     <p id="contributors>Contributors: ${data.contributors}</p>
     <p id="tests">Tests: ${data.tests}</p>
     <p id="questions">Submit questions to: ${data.questions}</p>
-
   </div>
 </div>
 </body>
