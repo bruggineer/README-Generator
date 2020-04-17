@@ -3,17 +3,17 @@ const fs = require("fs");
 const inquirer = require("inquirer");
 const util = require("util");
 const api = require("./api");
-const markdown = require("./generateMarkdown");
+const generateMarkdown = require("./generateMarkdown");
 
-function askQuestions() {
-    inquirer.prompt([
+async function askQuestions() {
+    const answers = await inquirer.prompt([
         {
             type: "input",
             name: "title",
             message: "Enter the Project Title:"
         },
         {
-            type: "editor",
+            type: "input",
             name: "projectDesc",
             message: "Enter Description:"
         },
@@ -48,23 +48,14 @@ function askQuestions() {
             message: "Where can questions be submitted?:"
         },
     ])
-        .then(answers => {
-            console.info('Answer:', answers);
-            if (err) {
-                return console.log(err);
-            }
-        });
 }
 
 async function init() {
-    await api.getUser();
-    askQuestions();
-    generateMarkdown.generateMarkdown(answers, githubData);
+    const githubData = await api.getUser();
+    console.log(this.githubData);
+    await askQuestions();
+    generateMarkdown.generateMarkdown(this.answers, githubData);
 }
 
 init();
 
-// fs.writeFile('README.md', data, (err) => {
-//     if (err) throw err;
-//     console.log("README.md created")
-// });
