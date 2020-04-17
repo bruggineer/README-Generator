@@ -50,11 +50,15 @@ async function askQuestions() {
     ])
 }
 
+module.exports = {
+    askQuestions: askQuestions
+}
+
 async function init() {
     const githubData = await api.getUser();
     console.log(this.githubData);
     await askQuestions();
-    generateMarkdown.generateMarkdown(this.answers, githubData);
+    generateMarkdown.generateMarkdown(this.answers, api.githubData);
 }
 
 init();
