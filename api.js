@@ -3,7 +3,7 @@ const fs = require("fs");
 const axios = require("./node_modules/axios");
 const inquirer = require("inquirer");
 
-const token = "b55ae5c0524d08eaaf612a08aa0156a681f0bbbe";
+const token = "8bf5ead64b8984bbf1c334774ca97e9ad757c473";
 
 async function getUser() {
   const answers = await inquirer
@@ -30,11 +30,10 @@ async function getUser() {
       avatar: avatar,
       username: answers.username
     }
-    const githubDataStr = JSON.stringify(githubData)
-    console.log("from API" + githubDataStr)
+    return githubData;
   })
+}
 
-    module.exports = {
-      getUser: getUser
-    }
+module.exports = {
+  getUser: getUser
 }
