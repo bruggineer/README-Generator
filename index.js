@@ -56,9 +56,9 @@ module.exports = {
 
 async function init() {
     const githubData = await api.getUser();
-    console.log(this.githubData);
+    console.log(githubData);
     await askQuestions();
-    generateMarkdown.generateMarkdown(this.answers, api.githubData);
+    generateMarkdown.generateMarkdown(answers, api.githubData);
 }
 
 init();
