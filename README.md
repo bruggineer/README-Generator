@@ -19,7 +19,13 @@ The README file produced by the app will contain the following:
   * User GitHub profile picture
   * User GitHub email
   
-  ## To run README-Generator, clone or fork to your local machine. Type 'npm install', then 'node index.js'. Answer the prompts. The generated README is stored in the 'generateMarkdown.js' file. Copy/paste or move file to proper directory for use. 
+  #### To run README-Generator:
+  Clone or fork to your local machine 
+  Run 'npm install', then 'node index.js'. 
+  Answer the prompts. 
+  The generated README is stored in the 'generateMarkdown.js' file. 
+  Copy/paste or move file to proper directory for use.
+  ________________________________________________________________________________________________________________________________________
 
 Challenge:
 
