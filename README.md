@@ -1,10 +1,10 @@
 # README-Generator
 
-A command-line application that dynamically generates a README.md from a user's input. The application is invoked through node.js
+A command-line application that dynamically generates a README.md from an user's input. The application is invoked through node.js
 
 The user is prompted for their GitHub username, which calls to the GitHub API to retrieve their email and profile image. They are then prompted with questions about their project.
 
-The README will be populated with the following:
+The README file produced by the app will contain the following:
 
 * At least one badge
 * Project title
